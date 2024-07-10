@@ -23,3 +23,18 @@ function multiply(a = 0, b = 0) {
 function divide(a = 0, b = 1) {
      return a / b;
 }
+
+function operate(numberFirst, numberSecond, operator) {
+    if (operator) {
+        switch (operator) {
+            case OPERATIONS.ADD:
+                return add(numberFirst, numberSecond);
+            case OPERATIONS.SUBTRACT:
+                return subtract(numberFirst, numberSecond);
+            case OPERATIONS.MULTIPLY:
+                return multiply(numberFirst, numberSecond);
+            case OPERATIONS.DIVIDE:
+                return divide(numberFirst, numberSecond);
+        }
+    }
+}
