@@ -1,3 +1,7 @@
+const numberButtons = document.querySelectorAll(".number");
+const operatorButtons = document.querySelectorAll(".operator");
+const functionButtons = document.querySelectorAll(".function"); 
+
 let numberFirst = 0;
 let numberSecond = 0;
 let operator;
@@ -38,3 +42,4 @@ function operate(numberFirst, numberSecond, operator) {
         }
     }
 }
+
