@@ -82,11 +82,22 @@ operatorButtons.forEach(button => {
 
 functionButtons.forEach(button => {
     button.addEventListener("click", e => {
-        for (const key in FUNCTIONS) {
-            if (e.target.textContent === FUNCTIONS[key]) {
-                //Function call logic will go here
-                console.log(FUNCTIONS[key]);
-            }
+        const selectedFunction = e.target.textContent
+        switch (selectedFunction) {
+            case FUNCTIONS.CLEAR:
+                console.log(selectedFunction);
+                break;
+            case FUNCTIONS.BACKSPACE:
+                console.log(selectedFunction);
+                break;
+            case FUNCTIONS.NEGATIVE_TOGGLE:
+                console.log(selectedFunction);
+                break;
+            case FUNCTIONS.DECIMAL:
+                console.log(selectedFunction);
+                break;
+            case FUNCTIONS.EQUALS:
+                console.log(selectedFunction);
         }
     });
 });
