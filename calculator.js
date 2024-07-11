@@ -13,6 +13,13 @@ const OPERATIONS = Object.freeze({
     MULTIPLY: "×",
     DIVIDE: "÷"
 });
+const FUNCTIONS = Object.freeze({
+    CLEAR: "AC",
+    BACKSPACE: "⌫",
+    NEGATIVE_TOGGLE: "±",
+    DECIMAL: ".",
+    EQUALS: "="
+});
 
 display.textContent = displayString;
 
@@ -69,7 +76,12 @@ operatorButtons.forEach(button => {
 
 functionButtons.forEach(button => {
     button.addEventListener("click", e => {
-        console.log(e.target.textContent);
+        for (const key in FUNCTIONS) {
+            if (e.target.textContent === FUNCTIONS[key]) {
+                //Function call logic will go here
+                console.log(FUNCTIONS[key]);
+            }
+        }
     });
 });
 
