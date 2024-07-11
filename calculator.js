@@ -54,6 +54,13 @@ function operate(numberFirst, numberSecond, operator) {
     }
 }
 
+function clear() {
+    numberFirst = "";
+    numberSecond = "";
+    operator = null;
+    updateDisplay();
+}
+
 numberButtons.forEach(button => {
     button.addEventListener("click", e => {
         if (!operator) {
@@ -85,7 +92,7 @@ functionButtons.forEach(button => {
         const selectedFunction = e.target.textContent
         switch (selectedFunction) {
             case FUNCTIONS.CLEAR:
-                console.log(selectedFunction);
+                clear();
                 break;
             case FUNCTIONS.BACKSPACE:
                 console.log(selectedFunction);
