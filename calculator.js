@@ -3,15 +3,15 @@ const operatorButtons = document.querySelectorAll(".operator");
 const functionButtons = document.querySelectorAll(".function");
 const display = document.querySelector("#display");
 
-let displayString = "0";
-let numberFirst = "0";
-let numberSecond = "0";
+let displayString = "";
+let numberFirst = "";
+let numberSecond = "";
 let operator = null;
 const OPERATIONS = Object.freeze({
-    ADD: "ADD",
-    SUBTRACT: "SUBTRACT",
-    MULTIPLY: "MULTIPLY",
-    DIVIDE: "DIVIDE"
+    ADD: "+",
+    SUBTRACT: "-",
+    MULTIPLY: "×",
+    DIVIDE: "÷"
 });
 
 display.textContent = displayString;
@@ -29,7 +29,7 @@ function multiply(a = 0, b = 0) {
 }
 
 function divide(a = 0, b = 1) {
-     return a / b;
+    return a / b;
 }
 
 function operate(numberFirst, numberSecond, operator) {
@@ -57,7 +57,13 @@ numberButtons.forEach(button => {
 
 operatorButtons.forEach(button => {
     button.addEventListener("click", e => {
-        console.log(e.target.textContent);
+        if (!operator) {
+            for (const key in OPERATIONS) {
+                if (e.target.textContent === OPERATIONS[key]) {
+                    operator = OPERATIONS[key];
+                }
+            }
+        }
     });
 });
 
@@ -69,5 +75,6 @@ functionButtons.forEach(button => {
 
 function updateDisplay() {
     displayString = numberFirst;
+    if (operator) displayString += ` ${operator} `;
     display.textContent = displayString;
 }
