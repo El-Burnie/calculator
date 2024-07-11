@@ -56,8 +56,13 @@ function operate(numberFirst, numberSecond, operator) {
 
 numberButtons.forEach(button => {
     button.addEventListener("click", e => {
-        if (numberFirst === "0") numberFirst = "";
-        numberFirst += e.target.textContent;
+        if (!operator) {
+            if (numberFirst === "0") numberFirst = "";
+            numberFirst += e.target.textContent;
+        } else {
+            if (numberSecond === "0") numberFirst = "";
+            numberSecond += e.target.textContent;
+        }
         updateDisplay();
     });
 });
@@ -68,6 +73,7 @@ operatorButtons.forEach(button => {
             for (const key in OPERATIONS) {
                 if (e.target.textContent === OPERATIONS[key]) {
                     operator = OPERATIONS[key];
+                    updateDisplay();
                 }
             }
         }
@@ -87,6 +93,6 @@ functionButtons.forEach(button => {
 
 function updateDisplay() {
     displayString = numberFirst;
-    if (operator) displayString += ` ${operator} `;
+    if (operator) displayString += ` ${operator} ${numberSecond}`;
     display.textContent = displayString;
 }
