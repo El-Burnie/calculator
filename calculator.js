@@ -111,6 +111,9 @@ function updateDisplay() {
 }
 
 function changeOperator(selectedOperator) {
+    if (!numberFirst) {
+        numberFirst = "0";
+    }
     for (const key in OPERATIONS) {
         if (selectedOperator === OPERATIONS[key]) {
             operator = OPERATIONS[key];
