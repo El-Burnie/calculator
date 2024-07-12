@@ -21,8 +21,6 @@ const FUNCTIONS = Object.freeze({
     EQUALS: "="
 });
 
-display.textContent = displayString;
-
 function add(a = 0, b = 0) {
     return a + b;
 }
@@ -68,6 +66,12 @@ function equals() {
         numberFirst = tempNumber.toString();
         updateDisplay();
     }
+}
+
+function updateDisplay() {
+    displayString = numberFirst;
+    if (operator) displayString += ` ${operator} ${numberSecond}`;
+    display.textContent = displayString;
 }
 
 numberButtons.forEach(button => {
@@ -117,9 +121,3 @@ functionButtons.forEach(button => {
         }
     });
 });
-
-function updateDisplay() {
-    displayString = numberFirst;
-    if (operator) displayString += ` ${operator} ${numberSecond}`;
-    display.textContent = displayString;
-}
