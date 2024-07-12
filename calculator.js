@@ -77,6 +77,24 @@ function negativeToggle() {
     updateDisplay();
 }
 
+function appendDecimal() {
+    const decimal = FUNCTIONS.DECIMAL;
+    if (operator && !numberSecond.includes(decimal)) {
+        if (!numberSecond) {
+            numberSecond = `0${decimal}`;
+        } else {
+            numberSecond += decimal;
+        }
+    } else if (!numberFirst.includes(decimal)) {
+        if (!numberFirst) {
+            numberFirst = `0${decimal}`;
+        } else {
+            numberFirst += decimal;
+        }
+    }
+    updateDisplay();
+}
+
 function updateDisplay() {
     displayString = numberFirst;
     if (operator) displayString += ` ${operator} ${numberSecond}`;
@@ -128,7 +146,7 @@ functionButtons.forEach(button => {
                 negativeToggle();
                 break;
             case FUNCTIONS.DECIMAL:
-                console.log(selectedFunction);
+                appendDecimal();
                 break;
             case FUNCTIONS.EQUALS:
                 equals();
