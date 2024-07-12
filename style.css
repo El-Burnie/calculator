@@ -14,10 +14,18 @@ body {
     box-shadow: 2px 2px 10px;
 }
 
+#nameplate {
+    display: flex;
+    margin: 8px 12px 0px;
+    justify-content: space-between;
+    color: floralwhite;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #display {
     display: flex;
     flex: 1 0 48px;
-    margin: 8px 8px 0px;
+    margin: 8px 8px 8px;
     justify-content: end;
     align-items: center;
     font-family: 'Courier New', Courier, monospace;
