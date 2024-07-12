@@ -74,6 +74,15 @@ function updateDisplay() {
     display.textContent = displayString;
 }
 
+function changeOperator(selectedOperator) {
+    for (const key in OPERATIONS) {
+        if (selectedOperator === OPERATIONS[key]) {
+            operator = OPERATIONS[key];
+            updateDisplay();
+        }
+    }
+}
+
 numberButtons.forEach(button => {
     button.addEventListener("click", e => {
         if (!operator) {
@@ -89,14 +98,10 @@ numberButtons.forEach(button => {
 
 operatorButtons.forEach(button => {
     button.addEventListener("click", e => {
-        if (!operator) {
-            for (const key in OPERATIONS) {
-                if (e.target.textContent === OPERATIONS[key]) {
-                    operator = OPERATIONS[key];
-                    updateDisplay();
-                }
-            }
+        if (operator && numberSecond) {
+            equals();
         }
+        changeOperator(e.target.textContent);
     });
 });
 
