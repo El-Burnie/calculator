@@ -121,6 +121,10 @@ function changeOperator(selectedOperator) {
     }
 }
 
+function processKeyStroke(keyName) {
+    console.log(keyName);
+}
+
 numberButtons.forEach(button => {
     button.addEventListener("click", e => {
         if (!operator) {
@@ -165,4 +169,10 @@ functionButtons.forEach(button => {
         }
         updateDisplay();
     });
+});
+
+document.addEventListener("keydown", e => {
+    const keyName = e.key;
+    processKeyStroke(keyName);
+    updateDisplay();
 });
