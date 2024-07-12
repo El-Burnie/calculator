@@ -92,6 +92,18 @@ function appendDecimal() {
     }
 }
 
+function backspace() {
+    if (operator) {
+        if (numberSecond) {
+            numberSecond = numberSecond.slice(0, -1);
+        } else {
+            operator = null;
+        }
+    } else if (numberFirst) {
+        numberFirst = numberFirst.slice(0, -1);
+    }
+}
+
 function updateDisplay() {
     displayString = numberFirst;
     if (operator) displayString += ` ${operator} ${numberSecond}`;
@@ -137,7 +149,7 @@ functionButtons.forEach(button => {
                 clear();
                 break;
             case FUNCTIONS.BACKSPACE:
-                console.log(selectedFunction);
+                backspace();
                 break;
             case FUNCTIONS.NEGATIVE_TOGGLE:
                 negativeToggle();
