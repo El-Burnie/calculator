@@ -5,7 +5,7 @@ body {
 #calculator-container {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 408px;
     min-height: 30vh;
     margin: 32px auto;
     border: 1px solid black;
@@ -15,7 +15,7 @@ body {
     display: flex;
     flex: 1 0 48px;
     border: 1px solid blue;
-    margin: 4px;
+    margin: 8px 4px 4px;
     justify-content: end;
     align-items: center;
     font-size: 32px;
@@ -25,31 +25,54 @@ body {
     display: flex;
     flex-direction: column;
     flex-grow: 10;
+    gap: 4px;
+    margin: 4px;
 }
 
 .button-row {
     display: flex;
-    flex: 1 0 100px;
+    flex: 1 0 96px;
+    gap: 4px;
 }
 
 .button-row button {
-    flex: 1 0 100px;
+    flex: 1 0 96px;
     font-size: 24px;
     font-weight: 700;
-}
-
-.operator {
-    background-color: lightblue;
-}
-
-.function {
-    background-color: lightsalmon;
-}
-
-.number {
-    background-color: lightgray;
+    box-sizing: border-box;
+    border-radius: 8px;
 }
 
 #zero-button {
     flex: 2 0 200px;
+}
+
+.operator {
+    background-color: lightblue;
+    border: 3px outset rgb(163, 204, 218);
+}
+
+.operator:active {
+    background-color: rgb(158, 198, 211); 
+    border: 3px inset rgb(163, 204, 218);
+}
+
+.function {
+    background-color: lightsalmon;
+    border: 3px outset rgb(240, 150, 115);
+}
+
+.function:active {
+    background-color: rgb(230, 144, 110); 
+    border: 3px inset rgb(240, 150, 115);
+}
+
+.number {
+    background-color: lightgray;
+    border: 3px outset rgb(180, 180, 180);
+}
+
+.number:active {
+    background-color: rgb(175, 175, 175);
+    border: 3px inset rgb(180, 180, 180);
 }
