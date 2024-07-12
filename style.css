@@ -35,6 +35,19 @@ body {
 .button-row button {
     flex: 1 0 100px;
     font-size: 24px;
+    font-weight: 700;
+}
+
+.operator {
+    background-color: lightblue;
+}
+
+.function {
+    background-color: lightsalmon;
+}
+
+.number {
+    background-color: lightgray;
 }
 
 #zero-button {
