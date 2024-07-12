@@ -20,6 +20,7 @@ body {
     margin: 8px 8px 0px;
     justify-content: end;
     align-items: center;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 32px;
     overflow: hidden;
     background-color: rgb(209, 235, 213);
@@ -43,6 +44,7 @@ body {
 
 .button-row button {
     flex: 1 0 96px;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 700;
     box-sizing: border-box;

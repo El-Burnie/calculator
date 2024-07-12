@@ -106,7 +106,7 @@ function backspace() {
 
 function updateDisplay() {
     displayString = numberFirst;
-    if (operator) displayString += ` ${operator} ${numberSecond}`;
+    if (operator) displayString += `${operator}${numberSecond}`;
     display.textContent = displayString;
 }
 
