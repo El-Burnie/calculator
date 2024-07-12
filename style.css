@@ -5,7 +5,7 @@ body {
 #calculator-container {
     display: flex;
     flex-direction: column;
-    width: 408px;
+    width: 416px;
     min-height: 30vh;
     margin: 32px auto;
     background-color: rgb(59, 60, 71);
@@ -17,12 +17,13 @@ body {
 #display {
     display: flex;
     flex: 1 0 48px;
-    border: 1px solid blue;
-    margin: 8px 4px 4px;
+    margin: 8px 8px 0px;
     justify-content: end;
     align-items: center;
     font-size: 32px;
     overflow: hidden;
+    background-color: rgb(209, 235, 213);
+    border: 4px inset rgb(49, 50, 59);
 }
 
 #buttons-container {
@@ -30,11 +31,12 @@ body {
     flex-direction: column;
     flex-grow: 10;
     gap: 4px;
-    margin: 4px;
+    margin: 8px;
 }
 
 .button-row {
     display: flex;
+    justify-content: center;
     flex: 1 0 96px;
     gap: 4px;
 }
