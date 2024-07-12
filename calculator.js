@@ -68,6 +68,15 @@ function equals() {
     }
 }
 
+function negativeToggle() {
+    if (operator && numberSecond) {
+        numberSecond = (+numberSecond * -1).toString();
+    } else if (numberFirst) {
+        numberFirst = (+numberFirst * -1).toString();
+    }
+    updateDisplay();
+}
+
 function updateDisplay() {
     displayString = numberFirst;
     if (operator) displayString += ` ${operator} ${numberSecond}`;
@@ -116,7 +125,7 @@ functionButtons.forEach(button => {
                 console.log(selectedFunction);
                 break;
             case FUNCTIONS.NEGATIVE_TOGGLE:
-                console.log(selectedFunction);
+                negativeToggle();
                 break;
             case FUNCTIONS.DECIMAL:
                 console.log(selectedFunction);
