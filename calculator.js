@@ -56,7 +56,6 @@ function clear() {
     numberFirst = "";
     numberSecond = "";
     operator = null;
-    updateDisplay();
 }
 
 function equals() {
@@ -65,7 +64,6 @@ function equals() {
         tempNumber = Math.round(tempNumber * 10000) / 10000;
         clear();
         numberFirst = tempNumber.toString();
-        updateDisplay();
     }
 }
 
@@ -75,7 +73,6 @@ function negativeToggle() {
     } else if (numberFirst) {
         numberFirst = (+numberFirst * -1).toString();
     }
-    updateDisplay();
 }
 
 function appendDecimal() {
@@ -93,7 +90,6 @@ function appendDecimal() {
             numberFirst += decimal;
         }
     }
-    updateDisplay();
 }
 
 function updateDisplay() {
@@ -106,7 +102,6 @@ function changeOperator(selectedOperator) {
     for (const key in OPERATIONS) {
         if (selectedOperator === OPERATIONS[key]) {
             operator = OPERATIONS[key];
-            updateDisplay();
         }
     }
 }
@@ -130,6 +125,7 @@ operatorButtons.forEach(button => {
             equals();
         }
         changeOperator(e.target.textContent);
+        updateDisplay();
     });
 });
 
@@ -152,5 +148,6 @@ functionButtons.forEach(button => {
             case FUNCTIONS.EQUALS:
                 equals();
         }
+        updateDisplay();
     });
 });
