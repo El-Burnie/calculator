@@ -39,7 +39,7 @@ function divide(a = 0, b = 1) {
     return a / b;
 }
 
-function operate(numberFirst, numberSecond, operator) {
+function operate(numberFirst = 0, numberSecond = 0, operator) {
     if (operator) {
         switch (operator) {
             case OPERATIONS.ADD:
@@ -59,6 +59,15 @@ function clear() {
     numberSecond = "";
     operator = null;
     updateDisplay();
+}
+
+function equals() {
+    if (operator) {
+        const tempNumber = operate(+numberFirst, +numberSecond, operator);
+        clear();
+        numberFirst = tempNumber.toString();
+        updateDisplay();
+    }
 }
 
 numberButtons.forEach(button => {
@@ -104,7 +113,7 @@ functionButtons.forEach(button => {
                 console.log(selectedFunction);
                 break;
             case FUNCTIONS.EQUALS:
-                console.log(selectedFunction);
+                equals();
         }
     });
 });
