@@ -61,7 +61,8 @@ function clear() {
 
 function equals() {
     if (operator) {
-        const tempNumber = operate(+numberFirst, +numberSecond, operator);
+        let tempNumber = operate(+numberFirst, +numberSecond, operator);
+        tempNumber = Math.round(tempNumber * 10000) / 10000;
         clear();
         numberFirst = tempNumber.toString();
         updateDisplay();
