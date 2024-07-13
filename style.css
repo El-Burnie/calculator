@@ -1,13 +1,9 @@
-body {
-    min-height: 100vh;
-}
-
 #calculator-container {
     display: flex;
     flex-direction: column;
     width: 416px;
     min-height: 30vh;
-    margin: 32px auto;
+    margin: 10vh auto;
     background-color: rgb(59, 60, 71);
     border: 4px solid rgb(49, 50, 59);
     border-radius: 8px;
