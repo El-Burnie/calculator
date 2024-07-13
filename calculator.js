@@ -75,6 +75,16 @@ function negativeToggle() {
     }
 }
 
+function appendDigit(digit) {
+    if (!operator) {
+        if (numberFirst === "0") numberFirst = "";
+        numberFirst += digit;
+    } else {
+        if (numberSecond === "0") numberFirst = "";
+        numberSecond += digit;
+    }
+}
+
 function appendDecimal() {
     const decimal = FUNCTIONS.DECIMAL;
     if (operator && !numberSecond.includes(decimal)) {
@@ -127,13 +137,7 @@ function processKeyStroke(keyName) {
 
 numberButtons.forEach(button => {
     button.addEventListener("click", e => {
-        if (!operator) {
-            if (numberFirst === "0") numberFirst = "";
-            numberFirst += e.target.textContent;
-        } else {
-            if (numberSecond === "0") numberFirst = "";
-            numberSecond += e.target.textContent;
-        }
+        appendDigit(e.target.textContent);
         updateDisplay();
     });
 });
