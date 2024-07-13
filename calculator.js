@@ -1,7 +1,16 @@
+const calculatorBody = document.querySelector("#calculator-container");
 const numberButtons = document.querySelectorAll(".number");
 const operatorButtons = document.querySelectorAll(".operator");
 const functionButtons = document.querySelectorAll(".function");
 const display = document.querySelector("#display");
+
+//silly stuff
+const mushroomCloud = document.createElement("img");
+mushroomCloud.src = ("https://www.nybooks.com/wp-content/uploads/2010/03/tumblr_kzpt9gZ5yi1qa1cnp.jpg");
+mushroomCloud.classList.add("centered");
+const boom = document.querySelector("#boom");
+boom.volume = 0.2;
+//end silly stuff
 
 let displayString = "";
 let numberFirst = "";
@@ -60,10 +69,15 @@ function clear() {
 
 function equals() {
     if (operator) {
-        let tempNumber = operate(+numberFirst, +numberSecond, operator);
-        tempNumber = Math.round(tempNumber * 10000) / 10000;
-        clear();
-        numberFirst = tempNumber.toString();
+        if (operator === OPERATIONS.DIVIDE && (!numberSecond || numberSecond === "0")) {
+            selfDestruct();
+            clear();
+        } else {
+            let tempNumber = operate(+numberFirst, +numberSecond, operator);
+            tempNumber = Math.round(tempNumber * 10000) / 10000;
+            clear();
+            numberFirst = tempNumber.toString();
+        }
     }
 }
 
@@ -178,6 +192,17 @@ function processKeyStroke(keyName) {
         case "Enter":
             equals();
     }
+}
+
+function selfDestruct() {
+    alert("Uh oh...");
+    boom.play();
+    setTimeout(() => {
+        calculatorBody.appendChild(mushroomCloud);
+    }, 2300);
+    setTimeout(() => {
+        mushroomCloud.remove();
+    }, 8200);
 }
 
 numberButtons.forEach(button => {
