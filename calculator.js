@@ -121,6 +121,9 @@ function updateDisplay() {
 }
 
 function changeOperator(selectedOperator) {
+    if (operator && numberSecond) {
+        equals();
+    }
     if (!numberFirst) {
         numberFirst = "0";
     }
@@ -132,7 +135,49 @@ function changeOperator(selectedOperator) {
 }
 
 function processKeyStroke(keyName) {
-    console.log(keyName);
+    switch (keyName) {
+        // Digit Keys
+        case "0":
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+            appendDigit(keyName);
+            break;
+        // Operator Keys
+        case "+":
+        case "-":
+            changeOperator(keyName);
+            break;
+        case "*":
+            changeOperator(OPERATIONS.MULTIPLY);
+            break;
+        case "/":
+            changeOperator(OPERATIONS.DIVIDE);
+            break;
+        // Function Keys
+        case "Delete":
+            clear();
+            break;
+        case "Backspace":
+            backspace();
+            break;
+        case "'":
+        case "!":
+            negativeToggle();
+            break;
+        case ".":
+            appendDecimal();
+            break;
+        case "=":
+        case "Enter":
+            equals();
+    }
 }
 
 numberButtons.forEach(button => {
@@ -144,9 +189,6 @@ numberButtons.forEach(button => {
 
 operatorButtons.forEach(button => {
     button.addEventListener("click", e => {
-        if (operator && numberSecond) {
-            equals();
-        }
         changeOperator(e.target.textContent);
         updateDisplay();
     });
